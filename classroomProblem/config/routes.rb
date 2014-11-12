@@ -7,8 +7,8 @@ Rails.application.routes.draw do
   root :to => "users#new"
   resources :users
 
-  get 'welcome/index'
-
+  get "index" => 'welcome#index', :as => "index"
+  resource  :welcome
   #index action in welcome controller
 
 

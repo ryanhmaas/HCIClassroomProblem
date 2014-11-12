@@ -1,16 +1,41 @@
-<h1>Log In</h1>
 
-<%= form_tag sessions_path do %>
 
-  <p>
-    <%= label_tag :email %> <br/>
-    <%= text_field_tag :email, params[:email]%>
-  </p>
+<header>
+<div class="row" id ="top">
+  <div class ="twelve columns text-center">
 
-  <p>
-    <%= label_tag :password %> <br/>
-    <%= password_field_tag :password %>
-  </p>
+    <h2>Welcome to Classroom View</h2>
+    <hr>
 
-  <p><%= submit_tag "Log in", :class => "button" %> </p>
-<% end %>
+  </div>
+</div>
+</header>
+
+
+<div class ="row">
+
+  <%= form_tag sessions_path do %>
+    <div class="Five columns text-center">
+      <%= text_field_tag :email, params[:email], :placeholder => "Email"%>
+    </div>
+</div>
+
+<div class ="row">
+    <div class = "Five columns text-center">
+      <%= label_tag :password %> <br/>
+      <%= password_field_tag :password %>
+    </div>
+</div>
+
+<br/>
+<br/>
+<br/>
+
+
+
+<div class ="row">
+  <div class ="twelve columns text-center">
+    <p><%= submit_tag "Log in", :class => "button [radius round]" %> </p>
+  <% end %>
+</div>
+</div>
