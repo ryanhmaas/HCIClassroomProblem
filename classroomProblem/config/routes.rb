@@ -9,6 +9,9 @@ Rails.application.routes.draw do
 
   get "index" => 'welcome#index', :as => "index"
   resource  :welcome
+
+  get "courses" => 'courses#new', :as => "courses"
+
   #index action in welcome controller
 
 
