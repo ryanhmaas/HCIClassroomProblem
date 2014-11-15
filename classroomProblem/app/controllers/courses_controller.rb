@@ -1,20 +1,10 @@
-class CoursesController < ApplicationController
-
-  def new
-  	@course = Course.new
-  end
-
-  def create
-  	@course = Course.create(course_params)
-  end
-
+class CourseController < ApplicationController
   def index
-  	@courses = Course.all
+    courses = Course.all
   end
 
-private
-  def course_params
-    params.require(:course).permit(:ID, :type, :location, :meeting_days, :start_time, :stop_time)
+  def import
+    Course.import(params[:file])
+    redirect_to root_url, notice: "Courses imported."
   end
-
 end
