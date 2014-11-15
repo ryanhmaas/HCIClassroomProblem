@@ -14,13 +14,13 @@
 ActiveRecord::Schema.define(version: 20141115212901) do
 
   create_table "courses", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "type"
+    t.string   "lec_exam"
     t.string   "location"
     t.string   "meeting_days"
-    t.datetime "start_time"
+    t.datetime "begin_time"
     t.datetime "end_time"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "products", force: true do |t|

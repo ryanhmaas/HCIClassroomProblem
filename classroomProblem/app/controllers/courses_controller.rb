@@ -1,6 +1,6 @@
-class CourseController < ApplicationController
+class CoursesController < ApplicationController
   def index
-    courses = Course.all
+    @courses = Course.all
   end
 
   def import

@@ -24,7 +24,7 @@
 </table>
 <div>
 <h3>Import a CSV File</h3>
-  <%= form_tag import_products_path, multipart: true do %>
+  <%= form_tag import_courses_path, multipart: true do %>
     <%= file_field_tag :file %>
     <%= submit_tag "Import CSV" %>
   <% end %>
