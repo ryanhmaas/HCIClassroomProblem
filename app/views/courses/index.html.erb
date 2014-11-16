@@ -30,11 +30,9 @@
     <table>
       <thead>
         <tr>
-          <th>Type</th>
           <th>Location</th>
-          <th>Meeting Days</th>
-          <th>Start Time</th>
-          <th>Stop Time</th>
+          <th>Status</th>
+          <th colspan="2"></th>
         </tr>
       </thead>
       <tbody>
@@ -42,23 +40,14 @@
         <% @courses.each do |course| %>
           <% if course.lec_exam.eql?("LEC")%>
           <tr>
-            <td><%= course.lec_exam %></td>
             <td><%= course.location %></td>
-            <td><%= course.meeting_days %></td>
-            <td><%= course.begin_time %></td>
-            <td><%= course.end_time %></td>
+            <td><%= course.status %></td>
+            <td><%= link_to 'Show', course %></td>
+            <td><%= link_to 'Edit', edit_course_path(course) %></td>
           </tr>
           <% end %>
         <% end %>
       </tbody>
     </table>
     <div>
-</div>
-
-
-<h3>Import a CSV File</h3>
-  <%= form_tag import_courses_path, multipart: true do %>
-    <%= file_field_tag :file %>
-    <%= submit_tag "Import CSV" %>
-  <% end %>
 </div>

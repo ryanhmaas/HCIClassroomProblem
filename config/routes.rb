@@ -14,7 +14,11 @@ Rails.application.routes.draw do
   get "index" => 'welcome#index', :as => "index"
   resource  :welcome
 
-  get "courses" => 'courses#index', :as => "courses"
+  get 'courses/edit'
+  get "courses" => 'courses#index', :as => "rooms"
+  get 'courses/new'
+  get'courses/show'
+  resources :courses
 
   resources :courses do
     collection { post :import }
