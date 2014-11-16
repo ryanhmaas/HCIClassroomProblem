@@ -19,12 +19,13 @@ class Course < ActiveRecord::Base
 
 
   #def is_open?
-  #  if Time.now > Course.start_time && Time.now < Course.end_time
+  #time = Time.now
+  #  if time > Course.start_time && time < Course.end_time
   #    return true
   #  else
   #    return false
   #  end
   #end
-
+  
 
 end

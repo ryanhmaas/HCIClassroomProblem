@@ -2,9 +2,24 @@ class CoursesController < ApplicationController
   before_action :set_room, only: [:show, :edit, :update]
 
 
-  def index
-    @courses = Course.all
+  def current_day
+    day = DateTime.now
+    day += 1
+    day = day.strftime("%A")
+    day[0]
+    return day
   end
+
+  def index
+    #conditions needed: meeting_day == current_day, unique room instances, lecture only
+    #will have to match the meeting_day since it has MWF
+    #@courses = Course.all
+    day = DateTime.now
+    day += 1
+    day = day.strftime("%A")
+    day = day[0]
+    @courses = Course.where('meeting_days LIKE (?)', "%#{day}%").group(:location)
+   end
 
   def import
     Course.import(params[:file])
@@ -35,6 +50,12 @@ class CoursesController < ApplicationController
 private
   def set_room
       @course = Course.find(params[:id])
+  end
+
+
+  def is_open?
+    time = Time.now
+    
   end
 
   def course_params
