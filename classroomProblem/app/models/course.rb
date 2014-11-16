@@ -1,4 +1,6 @@
 class Course < ActiveRecord::Base
+  attr_accessor :start_time, :end_time
+
   require 'csv'
 
   def self.import(file)
@@ -14,4 +16,15 @@ class Course < ActiveRecord::Base
       end # end if !product.nil?
     end # end CSV.foreach
   end # end self.import(file)
+
+
+  #def is_open?
+  #  if Time.now > Course.start_time && Time.now < Course.end_time
+  #    return true
+  #  else
+  #    return false
+  #  end
+  #end
+
+
 end

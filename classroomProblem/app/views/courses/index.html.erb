@@ -1,30 +1,59 @@
-<h1>Course#index</h1>
-<p>Find me in app/views/course/index.html.erb</p>
 
-<%= flash[:notice] %>
-<table>
-  <thead>
-    <tr>
-      <th>Type</th>
-      <th>Location</th>
-      <th>Meeting Days</th>
-      <th>Start Time</th>
-      <th>Stop Time</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @courses.each do |course| %>
-      <tr>
-        <td><%= course.lec_exam %></td>
-        <td><%= course.location %></td>
-        <td><%= course.meeting_days %></td>
-        <td><%= course.begin_time %></td>
-        <td><%= course.end_time %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<div>
+<div class="row">
+  <div class ="twelve columns text-center">
+    <h2>Room Selection Wizard</h2>
+  </div>
+</div>
+
+<div class="row">
+  <div class ="twelve columns text-center">
+    <button href="#" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" class="button dropdown">Filter by building</button><br>
+      <ul id="drop1" data-dropdown-content class="f-dropdown" aria-hidden="true" tabindex="-1">
+        <li><a href="#">This is a link</a></li>
+        <li><a href="#">This is another</a></li>
+        <li><a href="#">Yet another</a></li>
+      </ul>
+
+      <button href="#" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" class="button dropdown">Filter by time</button><br>
+        <ul id="drop1" data-dropdown-content class="f-dropdown" aria-hidden="true" tabindex="-1">
+          <li><a href="#">This is a link</a></li>
+          <li><a href="#">This is another</a></li>
+          <li><a href="#">Yet another</a></li>
+        </ul>
+  </div>
+</div>
+
+<div class="row">
+  <div class="twelve columns text-center">
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Location</th>
+          <th>Meeting Days</th>
+          <th>Start Time</th>
+          <th>Stop Time</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <% @courses.each do |course| %>
+          <% if course.lec_exam.eql?("LEC")%>
+          <tr>
+            <td><%= course.lec_exam %></td>
+            <td><%= course.location %></td>
+            <td><%= course.meeting_days %></td>
+            <td><%= course.begin_time %></td>
+            <td><%= course.end_time %></td>
+          </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+    <div>
+</div>
+
+
 <h3>Import a CSV File</h3>
   <%= form_tag import_courses_path, multipart: true do %>
     <%= file_field_tag :file %>

@@ -5,8 +5,11 @@ Rails.application.routes.draw do
   resources :sessions
 
   get "sign_up" => "users#new", :as => "sign_up"
-  root :to => "users#new"
   resources :users
+
+  #Root URL
+  root :to => "sessions#new"
+
 
   get "index" => 'welcome#index', :as => "index"
   resource  :welcome
