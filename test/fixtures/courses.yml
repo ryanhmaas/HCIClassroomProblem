@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  lec_exam: MyString
+  location: MyString
+  meeting_days: MyString
+  begin_time: 2014-11-15 16:45:00
+  end_time: 2014-11-15 16:45:00
+
+two:
+  lec_exam: MyString
+  location: MyString
+  meeting_days: MyString
+  begin_time: 2014-11-15 16:45:00
+  end_time: 2014-11-15 16:45:00
