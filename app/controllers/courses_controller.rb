@@ -13,12 +13,12 @@ class CoursesController < ApplicationController
   def index
     #conditions needed: meeting_day == current_day, unique room instances, lecture only
     #will have to match the meeting_day since it has MWF
-    #@courses = Course.all
+    @courses = Course.all
     day = DateTime.now
     day += 1
     day = day.strftime("%A")
     day = day[0]
-    @courses = Course.where('meeting_days LIKE (?)', "%#{day}%").group(:location)
+    #@courses = Course.where('meeting_days LIKE (?)', "%#{day}%").group(:location)
    end
 
   def import
@@ -59,7 +59,7 @@ private
   end
 
   def course_params
-      params.require(:course).permit(:lec_exam, :location, :start_time, :end_time, :status)
+      params.require(:course).permit(:lec_exam, :location, :begin_time, :end_time, :status)
   end
 
 end

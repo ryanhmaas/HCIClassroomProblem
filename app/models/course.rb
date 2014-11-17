@@ -4,16 +4,12 @@ class Course < ActiveRecord::Base
   require 'csv'
 
   def self.import(file)
-    CSV.foreach(file.path, headers: true) do |row|
 
-      course_hash = row.to_hash # exclude the price field
-      course = Course.where(id: course_hash["id"])
+    CSV.foreach(file.path, :col_sep => ',', :headers => true) do |row|
 
-      if course.count == 1
-        course.first.update_attributes(course_hash)
-      else
-        Course.create!(course_hash)
-      end # end if !product.nil?
+      #course_hash = row.to_hash # exclude the price field
+      #course = Course.where(id: course_hash["id"])
+      Course.create!(row.to_hash)
     end # end CSV.foreach
   end # end self.import(file)
 

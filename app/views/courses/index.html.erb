@@ -33,6 +33,7 @@
           <th>Location</th>
           <th>Status</th>
           <th>StartTime</th>
+          <th>EndTime</th>
           <th colspan="1"></th>
         </tr>
       </thead>
@@ -42,8 +43,9 @@
           <% if course.lec_exam.eql?("LEC")%>
           <tr>
             <td><%= course.location %></td>
-            <td><%= if (Time.now > course.begin_time) then 'Taken' end %></td>
+            <td><%= course.status %></td>
             <td><%= course.begin_time%></td>
+            <td><%= course.end_time%></td>
             <td><%= link_to 'Edit Status', edit_course_path(course) %></td>
           </tr>
           <% end %>
@@ -56,4 +58,4 @@
 <%= form_tag import_courses_path, multipart: true do %>
      <%= file_field_tag :file %>
      <%= submit_tag "Import CSV" %>
-  <% end %>
+<% end %>

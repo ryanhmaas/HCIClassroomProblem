@@ -4,9 +4,9 @@ class CreateCourses < ActiveRecord::Migration
       t.string :lec_exam
       t.string :location
       t.string :meeting_days
-      t.datetime :begin_time
-      t.datetime :end_time
-
+      t.time :begin_time
+      t.time :end_time
+      t.string :status
       t.timestamps
     end
   end
