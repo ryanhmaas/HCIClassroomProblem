@@ -5,7 +5,7 @@ class Course < ActiveRecord::Base
 
   def self.import(file)
 
-    CSV.foreach(file.path, :col_sep => ',', :headers => true) do |row|
+    CSV.foreach(file.path, :headers => true) do |row|
 
       #course_hash = row.to_hash # exclude the price field
       #course = Course.where(id: course_hash["id"])
